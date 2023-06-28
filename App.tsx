@@ -7,9 +7,9 @@ let mm = 0;
 let hh = 0;
 
 export default function App() {
-  const [timer, setTimer] = useState('00:00:00');
+  const [timer, setTimer] = useState<string | number>('00:00:00');
   const [btnText, setBtnText] = useState('Start');
-  const [lastTime, setLastTime] = useState(null);
+  const [lastTime, setLastTime] = useState<null | number | string>(null);
 
   function start() {
     if (timerActual !== null) {
@@ -20,11 +20,11 @@ export default function App() {
       timerActual = setInterval(() => {
         ss++;
 
-        if (ss == 60) {
+        if (ss === 60) {
           ss = 0;
           mm++;
         }
-        if (mm == 60) {
+        if (mm === 60) {
           mm = 0;
           hh++;
         }
